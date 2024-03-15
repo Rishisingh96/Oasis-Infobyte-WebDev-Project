@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Authentication</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Add your custom styles here */
+  </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded shadow-md max-w-md w-full">
+    <h2 class="text-2xl font-semibold mb-4 text-center">Login</h2>
+    <form id="loginForm" class="space-y-4">
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" id="username" name="username" class="mt-1 p-2 block w-full border-gray-300 rounded-md">
+      </div>
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" id="password" name="password" class="mt-1 p-2 block w-full border-gray-300 rounded-md">
+      </div>
+      <button type="submit"
+        class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition-colors w-full">Login</button>
+    </form>
+    <div class="flex justify-between items-center mt-4">
+      <a href="#" class="text-sm text-blue-500 hover:underline">Forgot Password?</a>
+      <a href="#" class="text-sm text-blue-500 hover:underline">Register a New User</a>
+    </div>
+  </div>
+
+  <script>
+    // Mocked user credentials
+    const validUsername = "user";
+    const validPassword = "password";
+
+    // Function to handle form submission
+    const handleFormSubmit = (event) => {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Perform basic validation
+      if (username.trim() === '' || password.trim() === '') {
+        alert('Please enter both username and password.');
+        return;
+      }
+
+      // Check credentials
+      if (username === validUsername && password === validPassword) {
+        alert('Login successful!');
+        // You can redirect the user to another page here
+      } else {
+        alert('Invalid username or password.');
+      }
+    };
+
+    // Attach submit event listener to the form
+    document.getElementById('loginForm').addEventListener('submit', handleFormSubmit);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Add your custom styles here */
+  </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded shadow-md max-w-md w-full">
+    <h2 class="text-2xl font-semibold mb-4 text-center">Register</h2>
+    <form id="registerForm" class="space-y-4">
+      <div>
+        <label for="newUsername" class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" id="newUsername" name="newUsername" class="mt-1 p-2 block w-full border-gray-300 rounded-md">
+      </div>
+      <div>
+        <label for="newPassword" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" id="newPassword" name="newPassword"
+          class="mt-1 p-2 block w-full border-gray-300 rounded-md">
+      </div>
+      <button type="submit"
+        class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition-colors w-full">Register</button>
+    </form>
+  </div>
+
+  <script>
+    // Function to handle registration form submission
+    const handleRegistration = (event) => {
+      event.preventDefault();
+      const newUsername = document.getElementById('newUsername').value;
+      const newPassword = document.getElementById('newPassword').value;
+
+      // Perform basic validation
+      if (newUsername.trim() === '' || newPassword.trim() === '') {
+        alert('Please enter both username and password.');
+        return;
+      }
+
+      // You can handle the registration process here, like sending data to the server
+
+      // Redirect to the login page after successful registration
+      window.location.href = 'login.html';
+    };
+
+    // Attach submit event listener to the registration form
+    document.getElementById('registerForm').addEventListener('submit', handleRegistration);
+  </script>
+</body>
+
+</html>
